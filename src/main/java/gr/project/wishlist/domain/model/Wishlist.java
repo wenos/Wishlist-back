@@ -44,7 +44,7 @@ public class Wishlist {
     @JoinColumn(name = "user_id")
     private User owner;
 
-    @OneToMany(mappedBy = "wishlist", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "wishlist", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     private Set<Gift> gifts;
 
     @OneToMany(mappedBy = "wishlist")

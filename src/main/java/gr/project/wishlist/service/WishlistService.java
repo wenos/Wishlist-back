@@ -42,6 +42,7 @@ public class WishlistService {
         Wishlist wishlist = getById(id);
         checkUser(wishlist);
         wishlist.getGifts().forEach(gift -> gift.setWishlist(null));
+        wishlist.getSharedAccess().forEach(sharedAccess -> sharedAccess.setWishlist(null));
         wishlistRepository.deleteById(id);
     }
 
