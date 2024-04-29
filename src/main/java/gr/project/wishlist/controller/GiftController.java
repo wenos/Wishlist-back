@@ -8,9 +8,11 @@ import gr.project.wishlist.mapper.GiftMapper;
 import gr.project.wishlist.service.GiftService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,18 +36,20 @@ public class GiftController {
         return giftMapper.toResponse(createdGift);
     }
 
-
-    @GetMapping("/{id}")
-    public GiftResponse read(@PathVariable Long id) {
-        Gift gift = giftService.getById(id);
-        return giftMapper.toResponse(gift);
+    @PutMapping("/{id}")
+    public GiftResponse update(@PathVariable Long id, @RequestBody @Valid GiftRequest request) {
+        Gift createdGift = giftService.update(request, id);
+        return giftMapper.toResponse(createdGift);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        giftService.delete(id);
+    }
 
-    @GetMapping
-    public List<GiftResponse> readAll() {
-        List<Gift> gifts = giftService.getAll();
+    @GetMapping("/wishlist/{id}")
+    public List<GiftResponse> readAllGifts(@PathVariable Long id) {
+        List<Gift> gifts = giftService.getGiftsByWishlistId(id);
         return giftMapper.toResponse(gifts);
     }
-
 }

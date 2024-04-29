@@ -8,7 +8,6 @@ import gr.project.wishlist.domain.model.BookingStatus;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.SharedAccess;
 import gr.project.wishlist.domain.model.User;
-import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.gift.GiftBookedProblem;
 import gr.project.wishlist.exception.link.AccessModeProblem;
 import gr.project.wishlist.exception.user.ForbiddenAccessProblem;
@@ -31,7 +30,7 @@ public class BookingService {
     @Transactional
     public void book(UUID uuid, Long giftId) {
         SharedAccess sharedAccess = linkService.getById(uuid);
-        if (sharedAccess.getAccessMode() != AccessMode.VIEW_MODE) {
+        if (sharedAccess.getAccessMode() != AccessMode.BOOKING_MODE) {
             throw new AccessModeProblem();
         }
         Gift foundGift = giftService.getById(giftId);

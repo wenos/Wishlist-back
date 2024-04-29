@@ -8,7 +8,7 @@ public record WishlistRequest(
         @NotBlank(message = "Название списка не может быть пустым")
         @Schema(description = "Наименование списка")
         String title,
-
+        @NotBlank(message = "Описание списка не может быть пустым")
         @Schema(description = "Описание списка")
         String description
 ) {

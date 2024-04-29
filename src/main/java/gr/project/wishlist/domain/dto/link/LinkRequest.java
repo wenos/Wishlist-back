@@ -3,9 +3,7 @@ package gr.project.wishlist.domain.dto.link;
 
 import gr.project.wishlist.domain.model.AccessMode;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
@@ -20,10 +18,9 @@ public class LinkRequest {
 
         public LinkRequest(Long wishlistId, AccessMode accessMode) {
                 this.wishlistId = wishlistId;
-                this.accessMode = (accessMode != null) ? accessMode : AccessMode.VIEW_MODE;
+                this.accessMode = (accessMode != null) ? accessMode : AccessMode.BOOKING_MODE;
         }
         public LinkRequest() {
-                this.accessMode = AccessMode.VIEW_MODE;
+                this.accessMode = AccessMode.BOOKING_MODE;
         }
-        // геттеры и сеттеры для wishlistId и accessMode
 }

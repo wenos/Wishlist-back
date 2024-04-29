@@ -3,7 +3,7 @@ package gr.project.wishlist.domain.model;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum AccessMode {
-    VIEW_MODE("view"),
+    BOOKING_MODE("booking"),
     EDIT_MODE("edit"),
     SUBSCRIBE_MODE("subscribe");
 

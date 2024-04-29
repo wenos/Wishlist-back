@@ -20,13 +20,6 @@ spring:
     enabled: false
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
-link:
-  prefix: /wishlist/
-  postfix: /gifts
-  protocol: http
-  host: localhost
-  port: 8080
-
 
 superuser:
   id: 1
