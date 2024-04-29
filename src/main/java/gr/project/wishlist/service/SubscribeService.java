@@ -5,10 +5,10 @@ import gr.project.wishlist.domain.model.AccessMode;
 import gr.project.wishlist.domain.model.SharedAccess;
 import gr.project.wishlist.domain.model.Subscribe;
 import gr.project.wishlist.domain.model.User;
-import gr.project.wishlist.domain.model.UserWishlistRelId;
+import gr.project.wishlist.domain.model.SubscribeId;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.link.AccessModeProblem;
-import gr.project.wishlist.repository.UserWishlistRelRepository;
+import gr.project.wishlist.repository.SubscribeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +20,7 @@ import java.util.UUID;
 public class SubscribeService {
     private final UserService userService;
     private final LinkService linkService;
-    private final UserWishlistRelRepository repository;
+    private final SubscribeRepository repository;
 
 
     public void subscribe(UUID uuid) {
@@ -30,14 +30,14 @@ public class SubscribeService {
         }
         Wishlist wishlist = sharedAccess.getWishlist();
         User user = userService.getCurrentUser();
-        UserWishlistRelId id = new UserWishlistRelId(wishlist.getId(), user.getId());
+        SubscribeId id = new SubscribeId(wishlist.getId(), user.getId());
         Subscribe subscribe = new Subscribe(id, wishlist, user);
         repository.save(subscribe);
     }
 
     public void unsubscribe(Long wishlistId) {
         User user = userService.getCurrentUser();
-        UserWishlistRelId id = new UserWishlistRelId(wishlistId, user.getId());
+        SubscribeId id = new SubscribeId(wishlistId, user.getId());
         repository.deleteById(id);
     }
 

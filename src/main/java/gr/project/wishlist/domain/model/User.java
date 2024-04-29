@@ -7,9 +7,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -76,8 +73,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "owner", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     Set<Wishlist> wishlists;
 
-    @OneToMany(mappedBy = "bookedPerson", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    Set<Gift> gifts;
+    @OneToMany(mappedBy = "user")
+    private Set<Booking> bookings;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

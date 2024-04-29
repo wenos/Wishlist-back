@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -44,9 +45,8 @@ public class Gift {
     @JoinColumn(name = "wishlist_id")
     private Wishlist wishlist;
 
-    @ManyToOne
-    @JoinColumn(name = "booked_user_id")
-    private User bookedPerson;
+    @OneToOne(mappedBy = "gift")
+    private Booking booking;
 
     @CreationTimestamp
     @JoinColumn(name = "created")

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 @Setter
-public class UserWishlistRelId implements Serializable {
+public class SubscribeId implements Serializable {
 
     @Column(name = "wishlist_id")
     private Long wishlistId;

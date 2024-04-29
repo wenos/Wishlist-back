@@ -6,11 +6,9 @@ import gr.project.wishlist.domain.model.AccessMode;
 import gr.project.wishlist.domain.model.BookingStatus;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.SharedAccess;
-import gr.project.wishlist.domain.model.UserWishlistRelId;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.link.AccessModeProblem;
 import gr.project.wishlist.exception.user.ForbiddenAccessProblem;
-import gr.project.wishlist.repository.UserWishlistRelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -58,7 +56,7 @@ public class LinkGiftService {
         return sharedAccess.getWishlist();
     }
 
-    private void checkWishlistsIds(Wishlist wishlist, Wishlist otherWishlist) {
+    public void checkWishlistsIds(Wishlist wishlist, Wishlist otherWishlist) {
         Long wishlistId = wishlist.getId();
         Long otherWishlistId = otherWishlist.getId();
         if (!wishlistId.equals(otherWishlistId)) {
