@@ -43,6 +43,12 @@ public class WishlistController {
         return wishlistMapper.toResponse(list);
     }
 
+    @GetMapping("/{id}")
+    public WishlistResponse read(@PathVariable Long id) {
+        Wishlist wishlist = wishlistService.getById(id);
+        return wishlistMapper.toResponse(wishlist);
+    }
+
     @PutMapping("/{id}")
     public WishlistResponse updateById(@PathVariable Long id, @RequestBody @Valid WishlistRequest request) {
         Wishlist wishlist = wishlistService.update(id, request);

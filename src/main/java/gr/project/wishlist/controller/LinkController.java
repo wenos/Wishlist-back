@@ -1,18 +1,22 @@
 package gr.project.wishlist.controller;
 
 
+import gr.project.wishlist.domain.dto.booking.BookingWishlist;
 import gr.project.wishlist.domain.dto.gift.GiftRequest;
 import gr.project.wishlist.domain.dto.gift.GiftResponse;
 import gr.project.wishlist.domain.dto.link.LinkRequest;
 import gr.project.wishlist.domain.dto.link.LinkResponse;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.SharedAccess;
+import gr.project.wishlist.domain.model.Wishlist;
+import gr.project.wishlist.mapper.BookingMapper;
 import gr.project.wishlist.mapper.GiftMapper;
 import gr.project.wishlist.mapper.SharedAccessMapper;
 import gr.project.wishlist.service.LinkGiftService;
 import gr.project.wishlist.service.LinkService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.antlr.v4.runtime.misc.Pair;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.net.MalformedURLException;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @RestController
@@ -36,6 +39,7 @@ public class LinkController {
     private final LinkService linkService;
     private final GiftMapper giftMapper;
     private final SharedAccessMapper sharedAccessMapper;
+    private final BookingMapper bookingMapper;
 
     @PostMapping("/shared/{uuid}")
     public GiftResponse create(@PathVariable UUID uuid, @RequestBody @Valid GiftRequest request) {
@@ -45,9 +49,9 @@ public class LinkController {
     }
 
     @GetMapping("/shared/{uuid}")
-    public List<GiftResponse> get(@PathVariable UUID uuid) {
-        Set<Gift> gifts = linkGiftService.getGiftsWithLink(uuid);
-        return giftMapper.toResponse(gifts);
+    public BookingWishlist get(@PathVariable UUID uuid) {
+        Pair<Wishlist, List<Gift>> wishlistSetGiftsPair = linkGiftService.getGiftsWithLink(uuid);
+        return bookingMapper.toResponse(wishlistSetGiftsPair);
     }
 
     @PutMapping("/shared/{uuid}/{giftId}")

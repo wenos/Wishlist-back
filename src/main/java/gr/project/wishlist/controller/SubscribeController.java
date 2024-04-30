@@ -1,8 +1,11 @@
 package gr.project.wishlist.controller;
 
 
+import gr.project.wishlist.domain.dto.gift.GiftResponse;
 import gr.project.wishlist.domain.dto.giftlist.WishlistResponse;
+import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.Wishlist;
+import gr.project.wishlist.mapper.GiftMapper;
 import gr.project.wishlist.mapper.WishlistMapper;
 import gr.project.wishlist.service.SubscribeService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +22,7 @@ import java.util.UUID;
 public class SubscribeController {
     private final SubscribeService subscribeService;
     private final WishlistMapper wishlistMapper;
+    private final GiftMapper giftMapper;
 
     @PostMapping("/subscribe/{uuid}")
     public void subscribe(@PathVariable UUID uuid) {
@@ -35,4 +39,12 @@ public class SubscribeController {
         List<Wishlist> wishlists = subscribeService.subscriptions();
         return wishlistMapper.toResponse(wishlists);
     }
+
+    @GetMapping("/subscriptions/{id}/gifts")
+    public List<GiftResponse> gifts(@PathVariable Long id) {
+        List<Gift> gifts = subscribeService.getGifts(id);
+        return giftMapper.toResponse(gifts);
+    }
+
+
 }

@@ -9,7 +9,7 @@ public class GiftBookedProblem extends AbstractThrowableProblem {
         super(
                 null,
                 "Подарок нельзя забронировать",
-                Status.NOT_FOUND,
+                Status.CONFLICT,
                 String.format("Подарок с id %s уже забронирован", value));
     }
 }

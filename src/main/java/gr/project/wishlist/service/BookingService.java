@@ -54,7 +54,7 @@ public class BookingService {
         BookingId id = new BookingId(giftId, user.getId());
         repository.deleteById(id);
         Gift foundGift = giftService.getById(giftId);
-        foundGift.setStatus(BookingStatus.BOOKED);
+        foundGift.setStatus(BookingStatus.NOT_BOOKED);
         giftService.save(foundGift);
     }
 

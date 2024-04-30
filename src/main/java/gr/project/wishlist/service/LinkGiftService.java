@@ -10,9 +10,10 @@ import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.link.AccessModeProblem;
 import gr.project.wishlist.exception.user.ForbiddenAccessProblem;
 import lombok.RequiredArgsConstructor;
+import org.antlr.v4.runtime.misc.Pair;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -43,9 +44,9 @@ public class LinkGiftService {
         giftService.simpleDelete(giftId);
     }
 
-    public Set<Gift> getGiftsWithLink(UUID uuid) {
+    public Pair<Wishlist, List<Gift>> getGiftsWithLink(UUID uuid) {
         SharedAccess sharedAccess = linkService.getById(uuid);
-        return sharedAccess.getWishlist().getGifts();
+        return new Pair<>(sharedAccess.getWishlist(), sharedAccess.getWishlist().getGifts());
     }
 
     private Wishlist checkAccessAndGetWishlist(UUID uuid) {

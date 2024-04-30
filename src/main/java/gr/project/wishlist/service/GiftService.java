@@ -9,6 +9,7 @@ import gr.project.wishlist.exception.user.ForbiddenAccessProblem;
 import gr.project.wishlist.repository.GiftRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +51,7 @@ public class GiftService {
         return giftRepository.findGiftsByWishlistId(wishlistId);
     }
 
+    @Transactional
     public Gift update(GiftRequest request, Long id) {
         Gift foundGift = getById(id);
         checkUser(foundGift.getWishlist());
