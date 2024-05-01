@@ -2,7 +2,7 @@ package gr.project.wishlist.controller;
 
 
 import gr.project.wishlist.domain.dto.gift.GiftResponse;
-import gr.project.wishlist.domain.dto.giftlist.WishlistResponse;
+import gr.project.wishlist.domain.dto.giftlist.WishlistSubscriptionResponse;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.mapper.GiftMapper;
@@ -35,9 +35,9 @@ public class SubscribeController {
     }
 
     @GetMapping("/subscriptions")
-    public List<WishlistResponse> subscriptions() {
+    public List<WishlistSubscriptionResponse> subscriptions() {
         List<Wishlist> wishlists = subscribeService.subscriptions();
-        return wishlistMapper.toResponse(wishlists);
+        return wishlistMapper.toWishlistSubscriptionResponse(wishlists);
     }
 
     @GetMapping("/subscriptions/{id}/gifts")
