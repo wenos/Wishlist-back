@@ -45,7 +45,7 @@ public class Gift {
     @JoinColumn(name = "wishlist_id")
     private Wishlist wishlist;
 
-    @OneToOne(mappedBy = "gift")
+    @OneToOne(mappedBy = "gift", orphanRemoval = true)
     private Booking booking;
 
     @CreationTimestamp

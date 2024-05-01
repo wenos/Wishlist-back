@@ -38,9 +38,11 @@ public class WishlistService {
         return save(wishlist);
     }
 
+    @Transactional
     public void delete(Long id) {
         Wishlist wishlist = getById(id);
         checkUser(wishlist);
+
         wishlist.getGifts().forEach(gift -> gift.setWishlist(null));
         wishlist.getSharedAccess().forEach(sharedAccess -> sharedAccess.setWishlist(null));
         wishlist.getSubscribers().forEach(subscribe -> subscribe.setWishlist(null));
