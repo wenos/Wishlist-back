@@ -1,5 +1,6 @@
 package gr.project.wishlist.domain.model;
 
+import gr.project.wishlist.domain.utils.BookingId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;

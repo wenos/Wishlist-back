@@ -1,7 +1,7 @@
 package gr.project.wishlist.service;
 
 import gr.project.wishlist.domain.dto.gift.GiftRequest;
-import gr.project.wishlist.domain.model.BookingStatus;
+import gr.project.wishlist.domain.utils.BookingStatus;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.gift.GiftNotFoundProblem;

@@ -1,6 +1,6 @@
 package gr.project.wishlist.domain.dto.booking;
 
-import gr.project.wishlist.domain.model.BookingStatus;
+import gr.project.wishlist.domain.utils.BookingStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 public record GiftBookingResponse(

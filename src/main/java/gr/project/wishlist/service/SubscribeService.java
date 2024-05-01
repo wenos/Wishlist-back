@@ -1,11 +1,11 @@
 package gr.project.wishlist.service;
 
 
-import gr.project.wishlist.domain.model.AccessMode;
+import gr.project.wishlist.domain.utils.AccessMode;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.SharedAccess;
 import gr.project.wishlist.domain.model.Subscribe;
-import gr.project.wishlist.domain.model.SubscribeId;
+import gr.project.wishlist.domain.utils.SubscribeId;
 import gr.project.wishlist.domain.model.User;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.link.AccessModeProblem;

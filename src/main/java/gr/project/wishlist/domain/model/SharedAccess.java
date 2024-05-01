@@ -1,6 +1,7 @@
 package gr.project.wishlist.domain.model;
 
 
+import gr.project.wishlist.domain.utils.AccessMode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -9,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,7 +43,7 @@ public class SharedAccess {
     private Wishlist wishlist;
 
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created")
     private OffsetDateTime createdAt;
 
 }

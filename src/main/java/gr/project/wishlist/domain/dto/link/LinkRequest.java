@@ -1,7 +1,7 @@
 package gr.project.wishlist.domain.dto.link;
 
 
-import gr.project.wishlist.domain.model.AccessMode;
+import gr.project.wishlist.domain.utils.AccessMode;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;

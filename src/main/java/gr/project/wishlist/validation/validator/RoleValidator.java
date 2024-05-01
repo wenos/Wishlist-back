@@ -1,7 +1,7 @@
 package gr.project.wishlist.validation.validator;
 
 
-import gr.project.wishlist.domain.model.Role;
+import gr.project.wishlist.domain.utils.Role;
 import gr.project.wishlist.validation.constraints.ValidRole;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

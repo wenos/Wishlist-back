@@ -1,5 +1,6 @@
 package gr.project.wishlist.domain.model;
 
+import gr.project.wishlist.domain.utils.Role;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -54,18 +55,18 @@ public class User implements UserDetails {
     private Role role;
 
     @CreationTimestamp
-    @Column(name = "created_at")
-    private OffsetDateTime createdAt;
+    @Column(name = "created")
+    private OffsetDateTime created;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
-    private OffsetDateTime updatedAt;
+    @Column(name = "updated")
+    private OffsetDateTime updated;
 
-    @Column(name = "banned_at")
-    private OffsetDateTime bannedAt;
+    @Column(name = "banned")
+    private OffsetDateTime banned;
 
-    @Column(name = "deleted_at")
-    private OffsetDateTime deletedAt;
+    @Column(name = "deleted")
+    private OffsetDateTime deleted;
 
     @OneToMany(mappedBy = "user")
     private Set<Subscribe> subscribes;
@@ -88,7 +89,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return bannedAt == null || bannedAt.isBefore(OffsetDateTime.now());
+        return banned == null || banned.isBefore(OffsetDateTime.now());
     }
 
     @Override
@@ -98,7 +99,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return deletedAt == null || deletedAt.isAfter(OffsetDateTime.now());
+        return deleted == null || deleted.isAfter(OffsetDateTime.now());
     }
 
 

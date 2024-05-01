@@ -3,7 +3,7 @@ package gr.project.wishlist.service.security;
 import gr.project.wishlist.domain.dto.auth.JwtAuthenticationResponse;
 import gr.project.wishlist.domain.dto.auth.SignInRequest;
 import gr.project.wishlist.domain.dto.auth.SignUpRequest;
-import gr.project.wishlist.domain.model.Role;
+import gr.project.wishlist.domain.utils.Role;
 import gr.project.wishlist.domain.model.User;
 import gr.project.wishlist.exception.user.InvalidUserDataProblem;
 import gr.project.wishlist.repository.UserRepository;

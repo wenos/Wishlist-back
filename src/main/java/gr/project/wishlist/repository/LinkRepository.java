@@ -1,7 +1,6 @@
 package gr.project.wishlist.repository;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import gr.project.wishlist.domain.model.AccessMode;
+import gr.project.wishlist.domain.utils.AccessMode;
 import gr.project.wishlist.domain.model.SharedAccess;
 import org.springframework.data.jpa.repository.JpaRepository;
 

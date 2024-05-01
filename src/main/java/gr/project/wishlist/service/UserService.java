@@ -5,7 +5,7 @@ import gr.project.wishlist.domain.dto.user.UpdateUserPasswordRequest;
 import gr.project.wishlist.domain.dto.user.UpdateUserRoleRequest;
 import gr.project.wishlist.domain.dto.user.UserBanRequest;
 import gr.project.wishlist.domain.dto.user.UserFilter;
-import gr.project.wishlist.domain.model.Role;
+import gr.project.wishlist.domain.utils.Role;
 import gr.project.wishlist.domain.model.User;
 import gr.project.wishlist.exception.user.ForbiddenAccessProblem;
 import gr.project.wishlist.exception.user.InvalidUserPasswordProblem;
@@ -172,7 +172,7 @@ public class UserService {
             throw new ForbiddenAccessProblem();
         }
 
-        user.setBannedAt(OffsetDateTime.now()
+        user.setBanned(OffsetDateTime.now()
                 .plusDays(Optional.ofNullable(request.days()).orElse(0))
                 .plusHours(Optional.ofNullable(request.hours()).orElse(0))
                 .plusMinutes(Optional.ofNullable(request.minutes()).orElse(0)));
@@ -193,7 +193,7 @@ public class UserService {
             throw new ForbiddenAccessProblem();
         }
 
-        user.setBannedAt(null);
+        user.setBanned(null);
         save(user);
     }
 

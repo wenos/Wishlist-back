@@ -2,7 +2,7 @@ package gr.project.wishlist.service;
 
 
 import gr.project.wishlist.domain.dto.link.LinkRequest;
-import gr.project.wishlist.domain.model.AccessMode;
+import gr.project.wishlist.domain.utils.AccessMode;
 import gr.project.wishlist.domain.model.SharedAccess;
 import gr.project.wishlist.domain.model.Wishlist;
 import gr.project.wishlist.exception.link.LinkNotFoundProblem;

@@ -52,9 +52,11 @@ public class Wishlist {
     private Set<Subscribe> subscribers;
 
     @CreationTimestamp
-    private OffsetDateTime createdAt;
+    @Column(name = "created")
+    private OffsetDateTime created;
 
     @UpdateTimestamp
-    private OffsetDateTime updatedAt;
+    @Column(name = "updated")
+    private OffsetDateTime updated;
 
 }

@@ -2,8 +2,8 @@ package gr.project.wishlist.service;
 
 
 import gr.project.wishlist.domain.dto.gift.GiftRequest;
-import gr.project.wishlist.domain.model.AccessMode;
-import gr.project.wishlist.domain.model.BookingStatus;
+import gr.project.wishlist.domain.utils.AccessMode;
+import gr.project.wishlist.domain.utils.BookingStatus;
 import gr.project.wishlist.domain.model.Gift;
 import gr.project.wishlist.domain.model.SharedAccess;
 import gr.project.wishlist.domain.model.Wishlist;

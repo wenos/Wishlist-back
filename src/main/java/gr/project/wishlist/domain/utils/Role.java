@@ -1,4 +1,4 @@
-package gr.project.wishlist.domain.model;
+package gr.project.wishlist.domain.utils;
 
 public enum Role {
     ROLE_USER,

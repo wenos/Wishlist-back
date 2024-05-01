@@ -1,7 +1,7 @@
 package gr.project.wishlist.repository;
 
 import gr.project.wishlist.domain.model.Booking;
-import gr.project.wishlist.domain.model.BookingId;
+import gr.project.wishlist.domain.utils.BookingId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -51,7 +51,7 @@ public class DeleteService {
         }
 
 
-        userForDelete.setDeletedAt(OffsetDateTime.now());
+        userForDelete.setDeleted(OffsetDateTime.now());
         userService.save(userForDelete);
     }
 }

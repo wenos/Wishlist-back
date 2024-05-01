@@ -1,5 +1,6 @@
 package gr.project.wishlist.domain.model;
 
+import gr.project.wishlist.domain.utils.BookingStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -49,10 +50,10 @@ public class Gift {
     private Booking booking;
 
     @CreationTimestamp
-    @JoinColumn(name = "created")
+    @Column(name = "created")
     private OffsetDateTime createdAt;
 
     @UpdateTimestamp
-    @JoinColumn(name = "updated")
+    @Column(name = "updated")
     private OffsetDateTime updatedAt;
 }

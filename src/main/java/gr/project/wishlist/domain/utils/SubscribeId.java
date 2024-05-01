@@ -1,4 +1,4 @@
-package gr.project.wishlist.domain.model;
+package gr.project.wishlist.domain.utils;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

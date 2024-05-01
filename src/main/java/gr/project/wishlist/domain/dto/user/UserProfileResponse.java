@@ -1,6 +1,6 @@
 package gr.project.wishlist.domain.dto.user;
 
-import gr.project.wishlist.domain.model.Role;
+import gr.project.wishlist.domain.utils.Role;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
@@ -21,7 +21,7 @@ public record UserProfileResponse(
 
 
         @Schema(description = "Дата окончания бана", example = "example@tinkoff.ru")
-        OffsetDateTime bannedAt,
+        OffsetDateTime banned,
 
 
         @Schema(description = "Роль пользователя", example = "ROLE_USER")

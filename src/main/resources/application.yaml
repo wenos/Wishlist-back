@@ -11,13 +11,13 @@ spring:
     hibernate:
       naming:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: none
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
   liquibase:
-    enabled: false
+    enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
 
