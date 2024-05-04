@@ -3,9 +3,9 @@ spring:
     default: local
 
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5433/tttt
-    username: postgres
-    password: root
+    url: ${DB_URL}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
     driverClassName: org.postgresql.Driver
   jpa:
     hibernate:
