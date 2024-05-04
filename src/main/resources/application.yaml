@@ -3,9 +3,9 @@ spring:
     default: local
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:root}
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
     driverClassName: org.postgresql.Driver
   jpa:
     hibernate:

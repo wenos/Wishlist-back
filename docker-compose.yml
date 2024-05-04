@@ -21,6 +21,8 @@ services:
       - DB_URL=jdbc:postgresql://db:5432/wishlist_db
       - DB_USERNAME=postgres
       - DB_PASSWORD=root
+      - TOKEN_KEY=413F4428472B4B6250655368566D5970337336763979244226452948404D6352
+      - SPRING_PROFILES_ACTIVE=prod
     depends_on:
       - db
 
