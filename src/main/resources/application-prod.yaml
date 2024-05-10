@@ -6,3 +6,9 @@ datasource:
 token:
   signing:
     key: ${TOKEN_KEY}
+
+superuser:
+  id: 1
+  enabled: ${SUPERUSER_ENABLE}
+  default:
+    password: ${SUPERUSER_PASSWORD}
