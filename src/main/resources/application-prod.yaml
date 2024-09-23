@@ -1,14 +1,14 @@
 datasource:
-  url: ${DB_URL}
-  username: ${DB_USERNAME}
-  password: ${DB_PASSWORD}
+  url: jdbc:postgresql://db:5432/wishlist_db
+  username: postgres
+  password: root
 
 token:
   signing:
-    key: ${TOKEN_KEY}
+    key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6352
 
 superuser:
   id: 1
-  enabled: ${SUPERUSER_ENABLE}
+  enabled: true
   default:
-    password: ${SUPERUSER_PASSWORD}
+    password: password

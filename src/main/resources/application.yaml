@@ -1,6 +1,6 @@
 spring:
   profiles:
-    default: local
+    default: prod
 
   datasource:
     url: ${datasource.url}
@@ -25,3 +25,22 @@ superuser:
   enabled: ${superuser.enabled}
   default:
     password: ${superuser.password}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus'
+  endpoint:
+    prometheus:
+      enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+micrometer:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
